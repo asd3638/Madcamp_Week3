@@ -4,15 +4,6 @@ plugins {
 }
 
 android {
-<<<<<<< HEAD
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
-
-    defaultConfig {
-        applicationId "com.example.app3_playlist"
-        minSdkVersion 16
-        targetSdkVersion 30
-=======
     compileSdkVersion 28
     buildToolsVersion "30.0.3"
 
@@ -20,9 +11,9 @@ android {
         applicationId "com.example.madcamp_week3"
         minSdkVersion 16
         targetSdkVersion 28
->>>>>>> 97ca6656230381238cff60c760cac25fa24b50fc
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -40,18 +31,6 @@ android {
 }
 
 dependencies {
-<<<<<<< HEAD
-
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.2.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation files('libs/YouTubeAndroidPlayerApi.jar')
-    testImplementation 'junit:junit:4.13.1'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-}
-=======
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
@@ -69,8 +48,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
     implementation platform('com.google.firebase:firebase-bom:26.3.0')
     implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.android.support:multidex:1.0.3'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
->>>>>>> 97ca6656230381238cff60c760cac25fa24b50fc

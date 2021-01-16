@@ -1,6 +1,2 @@
 include ':app'
-<<<<<<< HEAD
-rootProject.name = "app3_playlist"
-=======
 rootProject.name = "Madcamp_Week3"
->>>>>>> 97ca6656230381238cff60c760cac25fa24b50fc

@@ -1,10 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-<<<<<<< HEAD
-    <style name="Theme.App3_playlist" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-=======
     <style name="Theme.Madcamp_Week3" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
->>>>>>> 97ca6656230381238cff60c760cac25fa24b50fc
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -17,8 +13,5 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
-<<<<<<< HEAD
-=======
 
->>>>>>> 97ca6656230381238cff60c760cac25fa24b50fc
 </resources>

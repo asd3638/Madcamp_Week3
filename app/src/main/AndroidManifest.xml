@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
-    package="com.example.app3_playlist">
-    <!--youtube api 연동 권한 허용-->
-    <uses-permission android:name="android.permission.INTERNET"/>
-=======
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.madcamp_week3">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
->>>>>>> 97ca6656230381238cff60c760cac25fa24b50fc
 
     <application
         android:allowBackup="true"
@@ -18,9 +12,6 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-<<<<<<< HEAD
-        android:theme="@style/Theme.App3_playlist">
-=======
         android:theme="@style/Theme.Madcamp_Week3"
         tools:replace="android:theme">
         <service
@@ -36,7 +27,6 @@
             android:enabled="true"
             android:exported="true" />
 
->>>>>>> 97ca6656230381238cff60c760cac25fa24b50fc
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
