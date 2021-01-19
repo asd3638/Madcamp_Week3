@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReceiveActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="50dp"
+        android:paddingRight="50dp"
+        android:paddingLeft="50dp">
+
+    <TextView
+        android:fontFamily="@font/maruburi_regular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/letter_text_view"/>
+
+    </LinearLayout>
+
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:scaleType="fitCenter"
+        android:background="@android:color/transparent"
+        android:text="receive"
+        android:id="@+id/receive_button"
+        android:src="@drawable/confirm_button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        />
+
+</RelativeLayout>

@@ -17,26 +17,25 @@
         android:layout_alignParentTop="true">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="35dp"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
             android:gravity="left"
             android:layout_gravity="bottom"
             android:textSize="15sp"
-            android:text="id"
+            android:text="Playlist"
             android:textColor="@color/black"
             android:fontFamily="@font/maruburi_regular"
-            android:src="@drawable/id"/>
+            android:src="@drawable/playlist"/>
 
         <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:textSize="15sp"
-            android:id="@+id/id_edit_text"
+            android:id="@+id/et_pl_ed"
             android:textColor="@color/black"
             android:background="@android:color/transparent"
-            android:layout_gravity="center"
-            android:fontFamily="@font/maruburi_regular"></EditText>
+            android:fontFamily="@font/maruburi_regular"/>
 
     </LinearLayout>
 
@@ -50,27 +49,24 @@
         android:layout_below = "@id/id_layout">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="35dp"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
             android:gravity="left"
             android:layout_gravity="bottom"
             android:textSize="15sp"
-            android:text="password"
+            android:text="description"
             android:textColor="@color/black"
-            android:fontFamily="@font/maruburi_regular"
-            android:src="@drawable/password"
-            />
+            android:src="@drawable/description"
+            android:fontFamily="@font/maruburi_regular"/>
 
         <EditText
+            android:id="@+id/et_dc_ed"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="5"
-            android:textSize="15sp"
-            android:id="@+id/password_edit_text"
-            android:inputType="textPassword"
-            android:layout_gravity="center_vertical"
             android:background="@android:color/transparent"
-            android:fontFamily="@font/maruburi_regular"></EditText>
+            android:fontFamily="@font/maruburi_regular"
+            android:textSize="15sp" />
 
     </LinearLayout>
 
@@ -86,32 +82,48 @@
         android:layout_below="@id/password_layout">
 
         <ImageButton
-            android:id="@+id/sign_up_button"
             android:layout_height="35dp"
             android:layout_width="50dp"
-            android:layout_marginLeft="30sp"
             android:layout_weight="1"
+            android:id="@+id/pled_edit_button"
             android:background="@android:color/transparent"
             android:textColor="@color/black"
-            android:src="@drawable/signup"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"/>
-
+            android:text="edit"
+            android:textSize="15sp"
+            android:fontFamily="@font/maruburi_regular"
+            android:src="@drawable/edit"
+            android:scaleType="fitCenter"
+            />
         <ImageButton
             android:layout_height="35dp"
             android:layout_width="50dp"
             android:layout_weight="1"
-            android:id="@+id/sign_in_button"
+            android:id="@+id/pled_delete_button"
             android:background="@android:color/transparent"
             android:textColor="@color/black"
-            android:text="sign in"
+            android:text="edit"
             android:textSize="15sp"
-            android:layout_marginRight="30sp"
             android:fontFamily="@font/maruburi_regular"
-            android:src="@drawable/signin"
-            android:scaleType="fitCenter"/>
+            android:src="@drawable/delete"
+            android:scaleType="fitCenter"
+            />
+        <ImageButton
+            android:layout_height="35dp"
+            android:layout_width="50dp"
+            android:layout_weight="1"
+            android:id="@+id/pled_cancel_button"
+            android:background="@android:color/transparent"
+            android:textColor="@color/black"
+            android:text="edit"
+            android:textSize="15sp"
+            android:fontFamily="@font/maruburi_regular"
+            android:src="@drawable/cancel"
+            android:scaleType="fitCenter"
+            />
 
 
     </LinearLayout>
 
 </RelativeLayout>
+
+

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_main"
+    android:id="@+id/song_dialog"
     android:gravity="center">
 
     <LinearLayout
@@ -12,31 +12,31 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30sp"
         android:layout_marginVertical="10sp"
+        android:layout_marginTop="30sp"
         android:orientation="horizontal"
-        android:id="@+id/id_layout"
+        android:id="@+id/artist_layout"
         android:layout_alignParentTop="true">
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="35dp"
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:gravity="left"
             android:layout_gravity="bottom"
             android:textSize="15sp"
-            android:text="id"
+            android:text="artist"
             android:textColor="@color/black"
-            android:fontFamily="@font/maruburi_regular"
-            android:src="@drawable/id"/>
+            android:fontFamily="@font/maruburi_regular"/>
 
         <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:textSize="15sp"
-            android:id="@+id/id_edit_text"
+            android:id="@+id/artist_edit_text"
             android:textColor="@color/black"
             android:background="@android:color/transparent"
-            android:layout_gravity="center"
-            android:fontFamily="@font/maruburi_regular"></EditText>
+            android:fontFamily="@font/maruburi_regular"/>
 
     </LinearLayout>
 
@@ -46,31 +46,28 @@
         android:layout_marginHorizontal="30sp"
         android:layout_marginVertical="10sp"
         android:orientation="horizontal"
-        android:id="@+id/password_layout"
-        android:layout_below = "@id/id_layout">
+        android:id="@+id/title_layout"
+        android:layout_below = "@id/artist_layout">
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="35dp"
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:gravity="left"
             android:layout_gravity="bottom"
             android:textSize="15sp"
-            android:text="password"
+            android:text="title"
             android:textColor="@color/black"
-            android:fontFamily="@font/maruburi_regular"
-            android:src="@drawable/password"
-            />
+            android:fontFamily="@font/maruburi_regular"/>
 
         <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:textSize="15sp"
-            android:id="@+id/password_edit_text"
-            android:inputType="textPassword"
-            android:layout_gravity="center_vertical"
+            android:id="@+id/title_edit_text"
             android:background="@android:color/transparent"
-            android:fontFamily="@font/maruburi_regular"></EditText>
+            android:fontFamily="@font/maruburi_regular"/>
 
     </LinearLayout>
 
@@ -83,33 +80,31 @@
         android:layout_centerInParent="true"
         android:layout_marginHorizontal="10sp"
         android:layout_marginTop="100sp"
-        android:layout_below="@id/password_layout">
+        android:layout_below="@id/title_layout">
 
-        <ImageButton
-            android:id="@+id/sign_up_button"
-            android:layout_height="35dp"
-            android:layout_width="50dp"
-            android:layout_marginLeft="30sp"
+        <Button
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:id="@+id/confirm_button"
             android:background="@android:color/transparent"
             android:textColor="@color/black"
-            android:src="@drawable/signup"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"/>
-
-        <ImageButton
-            android:layout_height="35dp"
-            android:layout_width="50dp"
-            android:layout_weight="1"
-            android:id="@+id/sign_in_button"
-            android:background="@android:color/transparent"
-            android:textColor="@color/black"
-            android:text="sign in"
+            android:text="confirm"
             android:textSize="15sp"
-            android:layout_marginRight="30sp"
-            android:fontFamily="@font/maruburi_regular"
-            android:src="@drawable/signin"
-            android:scaleType="fitCenter"/>
+            android:layout_gravity="center"
+            android:fontFamily="@font/maruburi_regular"/>
+        <Button
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/cancel_button"
+            android:background="@android:color/transparent"
+            android:textColor="@color/black"
+            android:text="cancel"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/maruburi_regular"/>
+
 
 
     </LinearLayout>

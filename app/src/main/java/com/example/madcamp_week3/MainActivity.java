@@ -3,6 +3,7 @@ package com.example.madcamp_week3;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
 
 import android.Manifest;
 import android.app.Service;
@@ -13,31 +14,35 @@ import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.arthenica.mobileffmpeg.FFmpeg;
 
-public class MainActivity extends AppCompatActivity {
+import static java.security.AccessController.getContext;
 
+public class MainActivity extends AppCompatActivity {
     String[] permissions = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
-
     Context context;
-    private DownloadService downloadService;
-    private ExtractService extractService;
-    private boolean downloadBound = false;
-    private boolean extractBound = false;
-    Button downloadButton;
-    String downloadLink = "https://youtu.be/XH9NyhkXcp4";
-
-
-
+    EditText useridEditText;
+    EditText passwordEditText;
+    String userid;
+    String password;
+    ImageButton signInButton;
+    ImageButton signUpButton;
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -65,83 +70,91 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private ServiceConnection downloadServiceConnection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            DownloadService.MyBinder binder = (DownloadService.MyBinder) iBinder;
-            downloadService = binder.getService();
-            downloadBound = true;
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName componentName) {
-            downloadBound = false;
-        }
-    };
-
-
-    private ServiceConnection extractServiceConnection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            ExtractService.MyBinder binder = (ExtractService.MyBinder) iBinder;
-            extractService = binder.getService();
-            extractBound = true;
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName componentName) {
-            extractBound = false;
-        }
-    };
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("TAG", "Main activity on create.");
 
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
-        context = getApplicationContext();
+        PlayListPref playListPref = new PlayListPref();
+        playListPref.getPlayListPref(getApplicationContext());
 
+        context = getApplicationContext();
         checkPermission(context, permissions);
 
-        downloadButton = findViewById(R.id.download_button);
+        signInButton = findViewById(R.id.sign_in_button);
+        signUpButton = findViewById(R.id.sign_up_button);
+        useridEditText = findViewById(R.id.id_edit_text);
+        passwordEditText = findViewById(R.id.password_edit_text);
 
-        downloadButton.setOnClickListener(new View.OnClickListener() {
+        signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                userid = useridEditText.getText().toString();
+                password = passwordEditText.getText().toString();
 
-                Intent intent = new Intent(getApplicationContext(), DownloadService.class);
-                intent.putExtra("download_link", downloadLink);
-                startService(intent);
+                User user = new User(userid, password);
 
-/*
-                Intent intent = new Intent(getApplicationContext(), ExtractService.class);
-                startService(intent);
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
 
+                //editor.remove("playlists" );
 
-                Intent intent = new Intent(getApplicationContext(), AppendService.class);
-                startService(intent);
+                editor.putString("userid", userid);
+                editor.apply();
 
-                 */
+                Intent intent = new Intent(MainActivity.this, GridActivity.class);
+                RestAPIs restAPI = new RestAPIs(getApplicationContext(), intent, useridEditText, passwordEditText);
+
+                restAPI.signIn(user);
+
+            }
+        });
+
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userid = useridEditText.getText().toString();
+                password = passwordEditText.getText().toString();
+
+                User user = new User(userid, password);
+
+                RestAPIs restAPI = new RestAPIs(getApplicationContext(), null, useridEditText, passwordEditText);
+                restAPI.register(user);
             }
         });
     }
 
     @Override
+    protected void onResume() {
+        Log.d("TAG", "Main activity on resume.");
+
+        super.onResume();
+        this.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Log.d("TAG", "Main activity on back pressed.");
+
+        super.onBackPressed();
+        finishAffinity();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        PlayListPref playListPref = new PlayListPref();
+        playListPref.setPlayListPref(getApplicationContext());
+    }
+
+
+    @Override
     protected void onDestroy() {
+        Log.d("TAG", "Main activity on destroy.");
         super.onDestroy();
-
-        if(downloadBound) {
-            unbindService(downloadServiceConnection);
-            downloadBound = false;
-        }
-        stopService(new Intent(this, DownloadService.class));
-
-        if(extractBound) {
-            unbindService(extractServiceConnection);
-            extractBound = false;
-        }
-        stopService(new Intent(this, ExtractService.class));
     }
 }

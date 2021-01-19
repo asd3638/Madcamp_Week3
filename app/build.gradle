@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.madcamp_week3"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -40,15 +40,17 @@ dependencies {
     implementation 'com.arthenica:mobile-ffmpeg-full:4.2.2.LTS'
     implementation 'com.googlecode.mp4parser:isoparser:1.0.5.4'
     implementation 'com.writingminds:FFmpegAndroid:0.3.2'
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.squareup.okhttp3:logging-interceptor:3.3.1'
     implementation 'com.squareup.retrofit2:adapter-guava:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
-    implementation platform('com.google.firebase:firebase-bom:26.3.0')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.android.support:multidex:1.0.3'
+    implementation platform('com.google.firebase:firebase-bom:26.3.0')
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

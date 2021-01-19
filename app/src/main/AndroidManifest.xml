@@ -13,17 +13,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Madcamp_Week3"
+        android:usesCleartextTraffic="true"
         tools:replace="android:theme">
+        <activity android:name=".ReceiveActivity"></activity>
+        <activity android:name=".SendActivity" />
+        <activity android:name=".GridActivity" />
+        <activity android:name=".PlayActivity" />
+        <activity android:name=".SearchActivity" />
+
         <service
             android:name=".AppendService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
         <service
             android:name=".ExtractService"
             android:enabled="true"
             android:exported="true" />
         <service
             android:name=".DownloadService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".BackgroundSoundService"
             android:enabled="true"
             android:exported="true" />
 

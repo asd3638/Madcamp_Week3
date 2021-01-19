@@ -6,14 +6,18 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Binder;
 import android.os.Environment;
 import android.os.IBinder;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.util.SparseArray;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import at.huber.youtubeExtractor.YouTubeUriExtractor;
 import at.huber.youtubeExtractor.YtFile;
@@ -22,9 +26,12 @@ public class DownloadService extends Service {
 
     private IBinder binder = new MyBinder();
     public static boolean SERVICE_CONNECTED = false;
-    String downloadLink;
+    ArrayList<String> downloadLink;
+    int downloadLinkIndex;
+    int position;
     String newLink;
     String title;
+    String userid;
     private long downloadId;
 
     private BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -37,10 +44,27 @@ public class DownloadService extends Service {
                     Toast.makeText(DownloadService.this, "Download complete!", Toast.LENGTH_SHORT).show();
                     Intent newIntent = new Intent(DownloadService.this, ExtractService.class);
                     newIntent.putExtra("title", title);
+                    newIntent.putExtra("position", position);
                     startService(newIntent);
+
+                    if (downloadLinkIndex < downloadLink.size() - 1) {
+                        newIntent = new Intent(DownloadService.this, DownloadService.class);
+                        newIntent.putExtra("download_link", downloadLink);
+                        newIntent.putExtra("download_link_index", downloadLinkIndex + 1);
+                        newIntent.putExtra("position", position);
+                        startService(newIntent);
+                    }
+
                     //stopSelf();
                 } else {
                     Toast.makeText(DownloadService.this, "Download failed with an error.", Toast.LENGTH_SHORT).show();
+                    int size = PlayListList.getPlaylist(position, userid).size();
+                    PlayListList.getPlaylist(position, userid).deleteSong(size - 1);
+                    Intent selfIntent = new Intent(DownloadService.this, DownloadService.class);
+                    selfIntent.putExtra("download_link", downloadLink);
+                    selfIntent.putExtra("download_link_index", downloadLinkIndex);
+                    selfIntent.putExtra("position", position);
+                    startService(selfIntent);
                 }
             }
         }
@@ -64,7 +88,13 @@ public class DownloadService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d("TAG", "Download service on start command");
-        downloadLink = intent.getStringExtra("download_link");
+        downloadLink = intent.getStringArrayListExtra("download_link");
+        downloadLinkIndex = intent.getIntExtra("download_link_index", 0);
+        position = intent.getIntExtra("position", 0);
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        userid = sharedPreferences.getString("userid", null);
+
 
         IntentFilter intentFilter = new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE);
         registerReceiver(receiver, intentFilter);
@@ -112,7 +142,7 @@ public class DownloadService extends Service {
                     } else {
                         Log.d("ytFile", ytFiles.get(tag).toString());
                         newLink = ytFiles.get(tag).getUrl();
-                        title = urlTrimmer(downloadLink);
+                        title = urlTrimmer(downloadLink.get(downloadLinkIndex));
                         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(newLink));
                         request.setTitle(title);
                         request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title + ".mp4");
@@ -127,7 +157,7 @@ public class DownloadService extends Service {
 
         };
 
-        youTubeUriExtractor.execute(downloadLink);
+        youTubeUriExtractor.execute(downloadLink.get(downloadLinkIndex));
     }
 
     @Override
@@ -138,6 +168,7 @@ public class DownloadService extends Service {
 
     public String urlTrimmer(String link) {
         String trimmedUrl = link
+                .replace("https://m.youtube.com/watch?v=","")
                 .replace("/", "")
                 .replace(":", "")
                 .replace("https", "")

@@ -18,25 +18,25 @@
 
         <ImageView
             android:layout_width="100dp"
-            android:layout_height="35dp"
+            android:layout_height="30dp"
             android:gravity="left"
             android:layout_gravity="bottom"
             android:textSize="15sp"
-            android:text="id"
+            android:text="Playlist"
             android:textColor="@color/black"
             android:fontFamily="@font/maruburi_regular"
-            android:src="@drawable/id"/>
+            android:src="@drawable/playlist"/>
 
         <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:textSize="15sp"
-            android:id="@+id/id_edit_text"
+            android:id="@+id/et_pl"
             android:textColor="@color/black"
             android:background="@android:color/transparent"
-            android:layout_gravity="center"
-            android:fontFamily="@font/maruburi_regular"></EditText>
+            android:fontFamily="@font/maruburi_regular"
+            android:layout_gravity="center_vertical"/>
 
     </LinearLayout>
 
@@ -51,26 +51,24 @@
 
         <ImageView
             android:layout_width="100dp"
-            android:layout_height="35dp"
+            android:layout_height="30dp"
             android:gravity="left"
             android:layout_gravity="bottom"
             android:textSize="15sp"
-            android:text="password"
+            android:text="description"
             android:textColor="@color/black"
             android:fontFamily="@font/maruburi_regular"
-            android:src="@drawable/password"
-            />
+            android:src="@drawable/description"/>
 
         <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:textSize="15sp"
-            android:id="@+id/password_edit_text"
-            android:inputType="textPassword"
-            android:layout_gravity="center_vertical"
+            android:id="@+id/et_dc"
             android:background="@android:color/transparent"
-            android:fontFamily="@font/maruburi_regular"></EditText>
+            android:fontFamily="@font/maruburi_regular"
+            android:layout_gravity="center_vertical"/>
 
     </LinearLayout>
 
@@ -86,32 +84,36 @@
         android:layout_below="@id/password_layout">
 
         <ImageButton
-            android:id="@+id/sign_up_button"
-            android:layout_height="35dp"
-            android:layout_width="50dp"
-            android:layout_marginLeft="30sp"
+            android:layout_height="45dp"
+            android:layout_width="40dp"
             android:layout_weight="1"
+            android:id="@+id/pl_add_button"
             android:background="@android:color/transparent"
             android:textColor="@color/black"
-            android:src="@drawable/signup"
-            android:adjustViewBounds="true"
+            android:text="Add"
+            android:textSize="15sp"
+            android:layout_marginLeft="30sp"
+            android:fontFamily="@font/maruburi_regular"
+            android:src="@drawable/add"
             android:scaleType="fitCenter"/>
 
         <ImageButton
-            android:layout_height="35dp"
-            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:layout_width="40dp"
             android:layout_weight="1"
-            android:id="@+id/sign_in_button"
+            android:id="@+id/pl_cancel_button"
             android:background="@android:color/transparent"
             android:textColor="@color/black"
-            android:text="sign in"
+            android:text="cancel"
             android:textSize="15sp"
             android:layout_marginRight="30sp"
             android:fontFamily="@font/maruburi_regular"
-            android:src="@drawable/signin"
+            android:src = "@drawable/cancel"
             android:scaleType="fitCenter"/>
 
 
     </LinearLayout>
 
 </RelativeLayout>
+
+

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:id="@+id/play_fragment"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".PlayActivity"
+    android:orientation="vertical">
+
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:scaleType="fitCenter"
+        android:id="@+id/tracklist_buton"
+        android:background="@android:color/transparent"
+        android:textColor="@color/black"
+        android:text="tracklist"
+        android:textSize="15sp"
+        android:layout_marginTop="15sp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/tracklist"
+        android:fontFamily="@font/maruburi_regular"></ImageButton>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/walkman"
+        android:id="@+id/walkman_image_view"
+        android:layout_marginLeft="21dp"
+        android:layout_marginRight="17dp"/>
+
+    <ImageView
+        android:layout_width="16.5dp"
+        android:layout_height="16.5dp"
+        android:scaleType="fitCenter"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="265.5dp"
+        android:src="@drawable/rotator"
+        android:id="@+id/rotator_above"/>
+
+    <ImageView
+        android:layout_width="16.5dp"
+        android:layout_height="16.5dp"
+        android:scaleType="fitCenter"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="390.5dp"
+        android:rotation="50"
+        android:src="@drawable/rotator"
+        android:id="@+id/rotator_below"/>
+
+    <ImageButton
+        android:id="@+id/send_button"
+        android:layout_height="55dp"
+        android:layout_width="200dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/maruburi_regular"
+        android:text="send as a gift"
+        android:textColor="@color/black"
+        android:layout_marginTop="550dp"
+        android:textSize="15sp"
+        android:src="@drawable/sendasagift"
+        android:scaleType="fitCenter"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="80dp"
+        android:id="@+id/edit_button"
+        android:background="@android:color/transparent"></Button>
+
+    <Button
+        android:layout_width="30dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginLeft="290dp"
+        android:layout_marginRight="35dp"
+        android:id="@+id/play_button"
+        android:text="playbutton"
+        android:background="@android:color/transparent"/>
+    <Button
+        android:layout_width="30dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="290dp"
+        android:layout_marginRight="35dp"
+        android:id="@+id/stop_button"
+        android:text="stopbutton"
+        android:background="@android:color/transparent"/>
+
+
+    <!--
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/ll_play"
+            android:layout_width="match_parent"
+            android:layout_height="340dp"
+            android:orientation="vertical">
+
+            <com.google.android.youtube.player.YouTubeThumbnailView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:id="@+id/youtubeThumbnailView"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="플레이리스트 제목"
+                android:textSize="20sp">
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="-플레이리스트에 대한 설명-"
+                android:textSize="15sp">
+            </TextView>
+            <ImageButton
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_launcher_background"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp">
+            </ImageButton>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ListView
+                android:id="@+id/lv_play"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </ListView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="top|center">
+            <Button
+                android:id="@+id/btn_add_play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ADD">
+            </Button>
+        </LinearLayout>
+
+    </LinearLayout>
+    -->
+</FrameLayout>

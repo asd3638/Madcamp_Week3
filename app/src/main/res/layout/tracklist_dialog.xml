@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tracklist_layout"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:paddingTop="50dp">
+
+    <TextView
+        android:fontFamily="@font/maruburi_regular"
+        android:id="@+id/tv_tracklist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ListView
+        android:layout_marginTop="20dp"
+        android:id="@+id/tracklist_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:dividerHeight="0px"
+        android:divider="#ffffff"
+        android:requiresFadingEdge="vertical"
+        android:fadingEdgeLength="200dp"
+        android:overScrollMode="never"
+        android:scrollingCache="true"
+        android:scrollbars="none">
+    </ListView>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="close"
+        android:id="@+id/close_button"
+        android:background="@android:color/transparent"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:layout_gravity="center"
+        android:fontFamily="@font/maruburi_regular"
+        android:layout_marginBottom="50dp"/>
+
+</LinearLayout>

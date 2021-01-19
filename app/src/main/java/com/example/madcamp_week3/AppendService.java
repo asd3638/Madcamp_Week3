@@ -37,11 +37,22 @@ public class AppendService extends Service {
 
         // TODO: pass & get extras of the list of file paths to be appended as one audio file.
 
-        String mp3File1 = Environment.getExternalStorageDirectory() + "/Download/target-1.mp3";
-        String mp3File2 = Environment.getExternalStorageDirectory() + "/Download/target.mp3";
+        String mp3File1 = intent.getStringExtra("first");
+        String mp3File2 = intent.getStringExtra("second");
 
         String[] sfs = {mp3File1, mp3File2};
-        mergeMediaFiles(true, sfs, Environment.getExternalStorageDirectory() + "/Download/merged.mp3" );
+        mergeMediaFiles(true, sfs, Environment.getExternalStorageDirectory() + "/Music/merged.mp3" );
+
+        File file1 = new File(mp3File1);
+        file1.delete();
+
+        File file2 = new File(mp3File2);
+        file2.delete();
+
+        File file = new File(Environment.getExternalStorageDirectory() + "/Music/merged.mp3");
+        file.renameTo(new File(mp3File1));
+
+        stopSelf();
 
         return super.onStartCommand(intent, flags, startId);
     }

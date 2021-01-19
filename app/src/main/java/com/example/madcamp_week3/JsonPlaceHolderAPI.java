@@ -13,29 +13,19 @@ import retrofit2.http.Path;
 
 public interface JsonPlaceHolderAPI {
 
-    @GET("restfulapi/users/")
-    Call<List<User>> getUsers();
+    @POST("restfulapi/register/")
+    Call<User> register(@Body User user);
 
-    @POST("restfulapi/users/")
-    Call<User> createUser(@Body User user);
+    @POST("restfulapi/sign_in/")
+    Call<User> signIn(@Body User user);
 
-    @PUT("restfulapi/users/{pk}/")
-    Call<User> updateUser(@Body User user, @Path("pk") int pk);
+    @POST("restfulapi/send/")
+    Call<JsonPlayList> send(@Body JsonPlayList jsonPlayList);
 
-    @DELETE("restfulapi/users/{pk}/")
-    Call<User> deleteUser(@Path("pk") int pk);
+    @GET("restfulapi/receive/")
+    Call<ArrayList<JsonPlayList>> receive();
 
-    @GET("restfulapi/playlists/")
-    Call<List<Playlist>> getPlaylists();
-
-    @POST("restfulapi/playlists/")
-    Call<Playlist> createPlaylist(@Body Playlist playlist);
-
-    @PUT("restfulapi/playlists/{pk}/")
-    Call<Playlist> updatePlaylist(@Body Playlist playlist, @Path("pk") int pk);
-
-    @DELETE("restfulapi/playlists/{pk}/")
-    Call<Playlist> deletePlaylist(@Path("pk") int pk);
-
+    @POST("restfulapi/delete/")
+    Call<User> delete(@Body User user);
 
 }

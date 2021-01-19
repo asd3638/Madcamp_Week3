@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:id="@+id/search_fragment"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ll_search"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_height="50dp"
+            android:layout_width="200dp"
+            android:layout_gravity="top|center"
+            android:textSize="20sp"
+            android:text="Search songs"
+            android:textColor="@color/black"
+            android:fontFamily="@font/maruburi_regular"
+            android:src="@drawable/searchsongs"/>
+
+        <WebView
+            android:id="@+id/home_webview"
+            android:layout_width="wrap_content"
+            android:layout_height="450dp"
+            android:layout_gravity="top|center"
+            android:layout_marginBottom="3dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/buttons_layout">
+
+            <ImageButton
+                android:id="@+id/btn_search_download"
+                android:layout_height="45dp"
+                android:layout_width="40dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/maruburi_regular"
+                android:text="download"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:src="@drawable/download"
+                android:scaleType="fitCenter"
+                />
+
+            <ImageButton
+                android:id="@+id/btn_search_cancel"
+                android:layout_height="45dp"
+                android:layout_width="40dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:textColor="@color/black"
+                android:text="cancel"
+                android:textSize="15sp"
+                android:fontFamily="@font/maruburi_regular"
+                android:src="@drawable/cancel"
+                android:scaleType="fitCenter"
+                />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+</FrameLayout>
