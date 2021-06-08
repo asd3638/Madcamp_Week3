@@ -3,17 +3,17 @@ package com.example.madcamp_week3;
 import android.content.SharedPreferences;
 
 public class User {
-    private String userid;
+    private String userId;
     private String password;
 
-    public User(String userid, String password) {
-        this.userid = userid;
+    public User(String userId, String password) {
+        this.userId = userId;
         this.password = password;
 
     }
 
     public String getUserid() {
-        return userid;
+        return userId;
     }
 
     public String getPassword() {
@@ -21,7 +21,7 @@ public class User {
     }
 
     public void setUserid(String userid) {
-        this.userid = userid;
+        this.userId = userid;
     }
 
     public void setPassword(String password) {

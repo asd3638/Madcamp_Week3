@@ -2,14 +2,8 @@ package com.example.madcamp_week3;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,8 +11,6 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-import static android.content.ContentValues.TAG;
 
 public class RestAPIs {
     JsonPlaceHolderAPI mAPI = NetRetrofit.getInstance().getService();
@@ -34,8 +26,8 @@ public class RestAPIs {
         this.passwordEditText = passwordEditText;
     }
 
-    public void register(User user) {
-        Call<User> registerCall = mAPI.register(user);
+    public void signIn(User user) {
+        Call<User> registerCall = mAPI.signIn(user);
         registerCall.enqueue(new Callback<User>(){
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
@@ -62,12 +54,12 @@ public class RestAPIs {
         });
     }
 
-    public void signIn(User user) {
-        Call<User> signInCall = mAPI.signIn(user);
+    public void logIn(User user) {
+        Call<User> signInCall = mAPI.logIn(user);
         signInCall.enqueue(new Callback<User> () {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                if (response.code() == 201) {
+                if (response.code() == 200) {
                     context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                 } else {
                     if (response.code() == 400) {

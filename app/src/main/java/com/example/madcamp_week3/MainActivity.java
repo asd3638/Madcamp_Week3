@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, GridActivity.class);
                 RestAPIs restAPI = new RestAPIs(getApplicationContext(), intent, useridEditText, passwordEditText);
 
-                restAPI.signIn(user);
+                restAPI.logIn(user);
 
             }
         });
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 User user = new User(userid, password);
 
                 RestAPIs restAPI = new RestAPIs(getApplicationContext(), null, useridEditText, passwordEditText);
-                restAPI.register(user);
+                restAPI.signIn(user);
             }
         });
     }

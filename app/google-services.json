@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "438004317561",
-    "project_id": "madcampweek3-1d8bf",
-    "storage_bucket": "madcampweek3-1d8bf.appspot.com"
+    "project_number": "976885303706",
+    "project_id": "madcampweek3-f083a",
+    "storage_bucket": "madcampweek3-f083a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:438004317561:android:20d286962ce3efeb7383a8",
+        "mobilesdk_app_id": "1:976885303706:android:4344e1c31efd6679561223",
         "android_client_info": {
           "package_name": "com.example.madcamp_week3"
         }
       },
       "oauth_client": [
         {
-          "client_id": "438004317561-rip87ilgtbemrt14urh01oksp1qjtp55.apps.googleusercontent.com",
+          "client_id": "976885303706-8ff16e4gle1e3mhp5t3h2421fqlskb7u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.madcamp_week3",
+            "certificate_hash": "ac78c6edf6c280973080f58329db1ee75c1cb612"
+          }
+        },
+        {
+          "client_id": "976885303706-g2bqhvvu4v4ejla48elbc7ckoqm85dd4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCoFhMJOHqAA-HiuJpmSYqOaZIauDsh-VA"
+          "current_key": "AIzaSyAdfczNKughQqSle8HBQ1_RltbQKalHE-M"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "438004317561-rip87ilgtbemrt14urh01oksp1qjtp55.apps.googleusercontent.com",
+              "client_id": "976885303706-g2bqhvvu4v4ejla48elbc7ckoqm85dd4.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
