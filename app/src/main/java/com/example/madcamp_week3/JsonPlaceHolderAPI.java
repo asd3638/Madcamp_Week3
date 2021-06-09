@@ -11,7 +11,7 @@ public interface JsonPlaceHolderAPI {
 
     //이 부분이 서버에 요청 보내는 부분!
 
-    @POST("accounts/signIn")
+    @POST("accounts/createAccount")
     Call<User> signIn(@Body User user);
 
     @POST("accounts/logIn")
